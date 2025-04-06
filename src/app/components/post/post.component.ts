@@ -12,9 +12,9 @@ export class PostComponent {
 
 
   imageUploadedTime: string | null = null;
-  @Input() img: string="";
-  @Input() name: string="";
-  @Input() text: string="";
+  @Input() img: string = "";
+  @Input() name: string = "";
+  @Input() text: string = "";
   getCurrentTime(): string {
     const currentTime = new Date();
     const day = currentTime.getDate();
