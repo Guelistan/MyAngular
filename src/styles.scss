@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@keyframes changeBackground {
+  0% {
+    background-color: #ff9999; /* Start color */
+  }
+  25% {
+    background-color: #99ccff; /* Second color */
+  }
+  50% {
+    background-color: #99ff99; /* Third color */
+  }
+  75% {
+    background-color: #ffff99; /* Fourth color */
+  }
+  100% {
+    background-color: #ff9999; /* Back to start color */
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  transition: color 1s; /* Smooth transition for text color changes */
+  animation: changeBackground 16s infinite; /* Apply the animation */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
