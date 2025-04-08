@@ -1,41 +1,100 @@
-.Card {
-  background: linear-gradient(to right, #acf306, #05b7fd);
-  margin: auto;
-  padding: 20px;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  font-family: 'Arial', sans-serif;
-  font-size: 1.2em;
-  transition: transform 0.3s;
-  cursor: pointer;
-}
+ .Card {
+   background: linear-gradient(to right, #acf306, #05b7fd);
+   margin: auto;
+   padding: 20px;
+   margin-top: 16px;
+   margin-bottom: 16px;
+   width: 100%;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   color: #fff;
+   font-family: 'Arial', sans-serif;
+   font-size: 1.2em;
+   transition: transform 0.3s;
+   cursor: pointer;
+ }
 
-.Card:hover {
-  transform: scale(1.05);
-}
+ .Card:hover {
+   transform: scale(1.05);
+ }
 
-.Card-left {
-  background-color: rgb(255, 0, 0);
-  width: 20px;
-  min-height: 100px;
-  display: flex;
-  justify-content: center;
-  padding-top: 8px;
-}
+ .Card-section {
+   min-height: 100px;
+   display: flex;
+   justify-content: center;
+   padding-top: 8px;
+ }
 
-.Card-right {
-  width: 80px;
-  min-height: 100px;
-  display: flex;
-  justify-content: center;
-  padding-top: 8px;
-}
+ .Card-left {
+   @extend .Card-section;
+   background-color: rgb(255, 0, 0);
+   border-radius: 3%;
+ }
+
+ .Card-right:hover {
+   @extend .Card-section;
+   background-color: #f7e706;
+   border-radius: 0 35px 35px 0;
+   margin-left: 10px;
+ }
+
+ .Profile-image {
+   width: 500px;
+   height: 500px;
+   border-radius: 45%;
+   margin-right: 40px;
+ }
+
+ .Card-left {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   padding: 10px;
+   color: #fff;
+   font-size: 1em;
+   word-wrap: break-word;
+   /* Allow long words to break and wrap onto the next line */
+   overflow-wrap: break-word;
+   /* For better compatibility with older browsers */
+ }
+
+ .Button-container {
+   display: flex;
+   gap: 10px;
+   margin-top: 20px;
+ }
+
+ .Like,
+ .Email-button {
+   background-color: #fff;
+   color: #000;
+   border: none;
+   border-radius: 5px;
+   padding: 10px 20px;
+   font-size: 1em;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   transition: background-color 0.3s, transform 0.2s;
+ }
+
+ .Like:hover,
+ .Email-button:hover {
+   background-color: #f0f0f0;
+   transform: scale(1.1);
+ }
+
+ .Like::before {
+   content: '❤️';
+ }
+
+ .Email-button::before {
+   content: '✉️';
+ }

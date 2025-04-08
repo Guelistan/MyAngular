@@ -1,15 +1,14 @@
-
 <div class="Card">
+  <div class="Card-left">
+    <img class="Profile-image" [src]="img" alt="bilder">
+  </div>
+  <div class="Card-right">
+    <strong>{{name}}</strong>
+    <div>{{ getCurrentTime() }}</div>
+    <div>{{text}}</div>
+  </div>
+</div>
 
-</div>
-<div class="Card-left">
-  <img class="Profile-image" [src]="img" alt="bilder">
-
-</div>
-<div class="Card-right">
-  <strong>{{name}}</strong>
-  <div>{{ getCurrentTime() }}</div>
-  <div>{{text}}</div>
-</div>
-<div class="Card">
+<div class="Container">
+  <app-card></app-card>
 </div>

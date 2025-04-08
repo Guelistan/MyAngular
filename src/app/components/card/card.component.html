@@ -1,0 +1,16 @@
+<button (click)="like()">Like</button>
+<p>❤️ {{ likes }} Likes</p>
+
+<button (click)="dislike()">Dislike</button>
+<p>💔 {{ dislikes }} Dislikes</p>
+
+<button (click)="delete()">Delete</button>
+<button (click)="edit()">Edit</button>
+
+<div *ngIf="isEditing">
+  <input [(ngModel)]="text" placeholder="Edit your post" />
+  <button (click)="save()">Save</button>
+</div>
+
+<div *ngIf="isDeleted">Post deleted</div>
+<div *ngIf="isEdited">Post edited</div>

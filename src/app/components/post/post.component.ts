@@ -1,20 +1,18 @@
 import { Component, Input } from '@angular/core';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-post',
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './post.component.html',
-  styleUrl: './post.component.scss'
+  styleUrls: ['./post.component.scss']
 })
-
-
 export class PostComponent {
-
-
   imageUploadedTime: string | null = null;
-  @Input() img: string = "";
-  @Input() name: string = "";
-  @Input() text: string = "";
+  @Input() img: string = '';
+  @Input() name: string = '';
+  @Input() text: string = '';
+
   getCurrentTime(): string {
     const currentTime = new Date();
     const day = currentTime.getDate();
@@ -33,4 +31,3 @@ export class PostComponent {
     this.imageUploadedTime = this.getCurrentTime();
   }
 }
-
