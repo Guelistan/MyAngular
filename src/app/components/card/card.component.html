@@ -8,7 +8,7 @@
   </div>
 
   <!-- Vorschau des hochgeladenen Bildes -->
-  <div *ngIf="uploadedImage">
+  <div class="image-container" *ngIf="uploadedImage">
     <h3>Hochgeladenes Bild:</h3>
     <img [src]="uploadedImage" class="editable-image" alt="Hochgeladenes Bild" />
   </div>
@@ -19,8 +19,18 @@
     <button (click)="adjustBrightness(-10)">Helligkeit verringern</button>
   </div>
 
-  <!-- Bild speichern -->
+  <!-- Zoom-Größe anwenden -->
   <div *ngIf="uploadedImage">
-    <button (click)="saveImage()">Bild speichern</button>
+    <button (click)="applyZoom()">Zoom Größe anwenden</button>
+  </div>
+
+  <!-- Bild lokal speichern -->
+  <div *ngIf="uploadedImage">
+    <button (click)="saveImage()">Bild lokal speichern</button>
+  </div>
+
+  <!-- Bild auf dem Server speichern -->
+  <div *ngIf="uploadedImage">
+    <button (click)="uploadToServer()">Bild speichern im Server</button>
   </div>
 </div>
