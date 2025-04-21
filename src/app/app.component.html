@@ -1,5 +1,5 @@
-<app-post img="./assets/katze-flieder.png" name="Reso" text="Neugierig nach Insekten"></app-post>
-<app-post img="./assets/katzen-hinterhalt.png" name="Mircho" text="Ich habe dich erwischt!"></app-post>
-<app-post img="./assets/Pirche.png" name="Pirche"text="Sehr empfindlich"></app-post>
-<app-post img="./assets/Sekiro.png" name="Sekiro"text="Die Traurigkeit eines verloren gegangenen Katers."></app-post>
-<!-- Add more posts or any other content here --> 
+<div *ngFor="let post of posts" class="Card">
+  <h2>{{ post.name }}</h2>
+  <p>{{ post.text }}</p>
+  <img [src]="post.img || 'assets/default.png'" alt="{{ post.name }}" class="Profile-image" />
+</div>

@@ -1,0 +1,22 @@
+[
+  {
+    "img": "./assets/Reso.png",
+    "name": "Reso",
+    "text": "Neugierig nach Insekten"
+  },
+  {
+    "img": "./assets/Mircho.png",
+    "name": "Mircho",
+    "text": "Ich habe dich erwischt!"
+  },
+  {
+    "img": "./assets/Pirche.png",
+    "name": "Pirche",
+    "text": "Sehr empfindlich"
+  },
+  {
+    "img": "./assets/Sekiro.png",
+    "name": "Sekiro",
+    "text": "Die Traurigkeit eines verloren gegangenen Katers."
+  }
+]
