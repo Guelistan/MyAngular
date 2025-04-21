@@ -1,6 +1,6 @@
+<app-card></app-card>
 <div *ngFor="let post of posts" class="Card">
   <h2>{{ post.name }}</h2>
   <p>{{ post.text }}</p>
   <img [src]="post.img || 'assets/default.png'" alt="{{ post.name }}" class="Profile-image" />
 </div>
-<app-card></app-card>
