@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ComponentDecorator,Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { PostComponent } from './components/post/post.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CardComponent } from './components/card/card.component';
 interface Post {
   img: string;
   name: string;
@@ -12,7 +12,7 @@ interface Post {
 
 @Component({
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule,CardComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']

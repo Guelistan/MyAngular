@@ -1,19 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 @keyframes changeBackground {
   0% {
-    background-color: #ff9999; /* Start color */
+    background-color: #ff9999;
+    /* Start color */
   }
+
   25% {
-    background-color: #99ccff; /* Second color */
+    background-color: #99ccff;
+    /* Second color */
   }
+
   50% {
-    background-color: #99ff99; /* Third color */
+    background-color: #99ff99;
+    /* Third color */
   }
+
   75% {
-    background-color: #ffff99; /* Fourth color */
+    background-color: #ffff99;
+    /* Fourth color */
   }
+
   100% {
-    background-color: #ff9999; /* Back to start color */
+    background-color: #ff9999;
+    /* Back to start color */
   }
 }
 
@@ -22,11 +31,56 @@ body {
   margin: 10px;
   padding: 10px;
   font-size: 16px;
-  transition: color 1s; /* Smooth transition for text color changes */
-  animation: changeBackground 16s infinite; /* Apply the animation */
+  transition: color 1s;
+  /* Smooth transition for text color changes */
+  animation: changeBackground 16s infinite;
+  /* Apply the animation */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
+}
+
+img {
+  width: 200px;
+  /* Feste Breite */
+  height: 200px;
+  /* Feste Höhe */
+  object-fit: cover;
+  /* Zuschneiden, um das Bild in die Box zu passen */
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 45px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.5);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }

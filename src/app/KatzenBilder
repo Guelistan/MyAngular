@@ -1,1 +1,122 @@
+/*
+Um ein hochgeladenes Bild in den Ordner assets zu speichern, musst du serverseitigen Code verwenden, da Angular (als Frontend-Framework) keine direkten Schreibzugriffe auf das Dateisystem hat. Hier ist eine mögliche Lösung:
 
+### **1. Backend-Setup**
+Du benötigst ein Backend, das den Upload des Bildes verarbeitet und es im Ordner assets speichert. Hier ist ein Beispiel mit Node.js und Express:
+
+#### Backend-Code (Node.js + Express)
+```javascript
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
+
+const app = express();
+const PORT = 3000;
+
+// Set up multer for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, 'public/assets')); // Save to public/assets
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname)); // Unique filename
+  }
+});
+
+const upload = multer({ storage });
+
+// Serve static files from public folder
+app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
+
+// Endpoint for file upload
+app.post('/upload', upload.single('image'), (req, res) => {
+  res.json({ filePath: `/assets/${req.file.filename}` });
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+```
+
+### **2. Frontend-Integration**
+Im Angular-Frontend kannst du das Bild an den Server senden, sobald es hochgeladen wird.
+
+#### Angular Code (Frontend)
+```typescript
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
+  standalone: true,
+  imports: []
+})
+export class CardComponent {
+  uploadedImage: string = '';
+  backgrounds = [{ name: 'Design 1', value: 'design1' }, { name: 'Design 2', value: 'design2' }];
+
+  constructor(private http: HttpClient) {}
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const formData = new FormData();
+      formData.append('image', file);
+
+      // Send the file to the server
+      this.http.post<{ filePath: string }>('http://localhost:3000/upload', formData).subscribe(response => {
+        this.uploadedImage = response.filePath; // Save the file path for display
+        console.log('File uploaded successfully:', response.filePath);
+      });
+    }
+  }
+
+  increaseBrightness(): void {
+    // Logik zur Erhöhung der Helligkeit
+  }
+
+  changeBackground(event: Event): void {
+    const select = event.target as HTMLSelectElement;
+    const selectedBackground = select.value;
+    // Aktualisiere den Hintergrund basierend auf dem ausgewählten Design
+  }
+}
+```
+
+### **3. Frontend-Template**
+In der `card.component.html` kannst du das hochgeladene Bild anzeigen:
+
+```html
+<div class="image-container">
+  <input type="file" (change)="onFileSelected($event)" />
+  <div class="image-editor">
+    <img *ngIf="uploadedImage" [src]="uploadedImage" class="editable-image" />
+  </div>
+</div>
+```
+
+### **4. Ordnerstruktur**
+Stelle sicher, dass der Ordner assets im Backend-Projekt existiert. Wenn nicht, erstelle ihn manuell.
+
+### **5. Starte den Server**
+1. Installiere die benötigten Pakete:
+   ```bash
+   npm install express multer
+   ```
+2. Starte den Server:
+   ```bash
+   node server.js
+   ```
+
+### **6. Teste die Anwendung**
+1. Starte den Angular-Entwicklungsserver mit `ng serve`.
+2. Lade ein Bild hoch und überprüfe, ob es im Ordner assets gespeichert wird und im Frontend angezeigt wird.
+
+Lass mich wissen, wenn du weitere Hilfe benötigst!
+
+Similar code found with 1 license type
+ */

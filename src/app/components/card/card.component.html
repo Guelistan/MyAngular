@@ -1,0 +1,26 @@
+<div class="card-container">
+  <h1>Card Component</h1>
+
+  <!-- Datei-Upload -->
+  <div>
+    <label for="fileUpload">Bild hochladen:</label>
+    <input type="file" id="fileUpload" (change)="onFileSelected($event)" />
+  </div>
+
+  <!-- Vorschau des hochgeladenen Bildes -->
+  <div *ngIf="uploadedImage">
+    <h3>Hochgeladenes Bild:</h3>
+    <img [src]="uploadedImage" class="editable-image" alt="Hochgeladenes Bild" />
+  </div>
+
+  <!-- Helligkeitseinstellung -->
+  <div *ngIf="uploadedImage">
+    <button (click)="adjustBrightness(10)">Helligkeit erhöhen</button>
+    <button (click)="adjustBrightness(-10)">Helligkeit verringern</button>
+  </div>
+
+  <!-- Bild speichern -->
+  <div *ngIf="uploadedImage">
+    <button (click)="saveImage()">Bild speichern</button>
+  </div>
+</div>
